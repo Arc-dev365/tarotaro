@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+        CSS.supports('top: constant(a)'))
+      document.write(
+        '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+        (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+      
+      // 检查页面是否显示"无法访问该页面"的错误
+      window.addEventListener('DOMContentLoaded', function() {
+        // 如果页面内容包含错误信息，尝试重定向到首页
+        if (document.body.textContent.includes('无法访问该页面')) {
+          window.location.href = '/';
+        }
+      });
+    </script>
+    <title>塔罗占卜</title>
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+  <body>
+    <div id="app"><!--app-html--></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

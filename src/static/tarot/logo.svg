@@ -1,0 +1,40 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- 塔罗牌应用Logo -->
+  <defs>
+    <!-- 渐变背景 -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#673AB7" />
+      <stop offset="100%" stop-color="#9C27B0" />
+    </linearGradient>
+    
+    <!-- 星星光芒 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- 背景圆形 -->
+  <circle cx="100" cy="100" r="90" fill="url(#logoGradient)" />
+  
+  <!-- 塔罗牌图案 -->
+  <rect x="60" y="40" width="35" height="70" rx="5" fill="#FFFFFF" opacity="0.9" />
+  <rect x="105" y="40" width="35" height="70" rx="5" fill="#FFFFFF" opacity="0.9" />
+  <rect x="82.5" y="90" width="35" height="70" rx="5" fill="#FFFFFF" opacity="0.9" />
+  
+  <!-- 星星装饰 -->
+  <path d="M100,25 L103,32 L110,32 L105,37 L107,44 L100,40 L93,44 L95,37 L90,32 L97,32 Z" fill="#FFFFFF" filter="url(#glow)" />
+  
+  <!-- 月亮装饰 -->
+  <path d="M160,70 A30,30 0 0,1 130,100 A30,30 0 0,0 160,130 A30,30 0 0,0 160,70" fill="#FFFFFF" opacity="0.7" />
+  
+  <!-- 卡片装饰元素 -->
+  <circle cx="77.5" cy="60" r="5" fill="#EDE7F6" />
+  <circle cx="122.5" cy="60" r="5" fill="#EDE7F6" />
+  <circle cx="100" cy="110" r="5" fill="#EDE7F6" />
+  
+  <!-- 神秘符号 -->
+  <path d="M77.5,60 L77.5,75 M72.5,65 L82.5,65" stroke="#673AB7" stroke-width="2" />
+  <path d="M122.5,60 L122.5,75 M117.5,65 L127.5,65" stroke="#673AB7" stroke-width="2" />
+  <path d="M100,110 L100,125 M95,115 L105,115" stroke="#673AB7" stroke-width="2" />
+</svg>

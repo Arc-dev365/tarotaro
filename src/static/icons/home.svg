@@ -1,0 +1,7 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+  <!-- 首页图标 - 非激活状态 -->
+  <path d="M12,2.5L3,9.8V21h6v-6h6v6h6V9.8L12,2.5z" fill="#999999"/>
+  
+  <!-- 门窗装饰 -->
+  <rect x="10" y="12" width="4" height="3" fill="#FFFFFF"/>
+</svg>

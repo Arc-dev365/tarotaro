@@ -1,0 +1,114 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/login/login",
+			"style": {
+				"navigationBarTitleText": "登录",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/api-test/api-test",
+			"style": {
+				"navigationBarTitleText": "网页版API测试"
+			}
+		},
+		{
+			"path": "pages/test/test",
+			"style": {
+				"navigationBarTitleText": "API测试"
+			}
+		},
+		{
+			"path": "pages/welcome/welcome",
+			"style": {
+				"navigationBarTitleText": "塔罗占卜",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "注册",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "塔罗占卜"
+			}
+		},
+		{
+			"path": "pages/daily/daily",
+			"style": {
+				"navigationBarTitleText": "今日塔罗"
+			}
+		},
+		{
+			"path": "pages/quick/quick",
+			"style": {
+				"navigationBarTitleText": "快速塔罗"
+			}
+		},
+		{
+			"path": "pages/custom/custom",
+			"style": {
+				"navigationBarTitleText": "定向塔罗"
+			}
+		},
+		{
+			"path": "pages/reading/reading",
+			"style": {
+				"navigationBarTitleText": "塔罗解读"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "塔罗占卜",
+		"navigationBarBackgroundColor": "#673AB7",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"titleNView": false
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/tabbar/home.svg",
+				"selectedIconPath": "static/tabbar/home-active.svg",
+				"text": "首页"
+			},
+			{
+				"pagePath": "pages/daily/daily",
+				"iconPath": "static/tabbar/daily.svg",
+				"selectedIconPath": "static/tabbar/daily-active.svg",
+				"text": "今日塔罗"
+			},
+			{
+				"pagePath": "pages/quick/quick",
+				"iconPath": "static/tabbar/quick.svg",
+				"selectedIconPath": "static/tabbar/quick-active.svg",
+				"text": "快速塔罗"
+			},
+			{
+				"pagePath": "pages/custom/custom",
+				"iconPath": "static/tabbar/custom.svg",
+				"selectedIconPath": "static/tabbar/custom-active.svg",
+				"text": "定向塔罗"
+			}
+		]
+	}
+}
