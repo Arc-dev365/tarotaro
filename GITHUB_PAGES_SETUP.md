@@ -41,11 +41,12 @@
 
 ## 最新修复 ✅
 
-**问题已解决！** 我们发现并修复了导致 404 错误的根本原因：
+**问题已解决！** 我们发现并修复了导致部署失败的根本原因：
 
 ### 修复的问题：
 1. **路径配置错误**：`vite.config.js` 中的 `base` 路径设置为 `/my-vue3-project_0_3/`，但实际仓库名是 `tarotaro`
 2. **构建输出路径**：确认 uni-app H5 构建输出在 `dist/build/h5` 目录，GitHub Actions 配置已正确
+3. **GitHub Actions 版本问题**：GitHub Actions v4 版本存在 artifact URL 验证错误，已降级到稳定的 v2 版本
 
 ### 已完成的修复：
 - ✅ 使用官方的 GitHub Pages 部署 action
@@ -53,6 +54,7 @@
 - ✅ 分离了构建和部署步骤
 - ✅ 修正了 base 路径配置
 - ✅ 确认了正确的构建输出目录
+- ✅ 修复了 GitHub Actions artifact URL 验证问题
 
 ### 🎯 应用访问地址
 部署成功后，您的塔罗牌应用将在以下地址可用：
