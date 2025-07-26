@@ -7,13 +7,22 @@ set -e
 
 # 检查参数
 if [ $# -eq 0 ]; then
-    echo "错误: 请提供您的 GitHub 用户名"
-    echo "使用方法: ./deploy-to-github.sh YOUR_GITHUB_USERNAME"
+    echo "错误: 请提供 GitHub 仓库路径"
+    echo "使用方法: ./deploy-to-github.sh USERNAME/REPO_NAME"
     exit 1
 fi
 
-GITHUB_USERNAME=$1
-REPO_NAME="my-vue3-project_0_3"
+# 解析用户名和仓库名
+REPO_PATH=$1
+if [[ $REPO_PATH == *"/"* ]]; then
+    GITHUB_USERNAME=$(echo $REPO_PATH | cut -d'/' -f1)
+    REPO_NAME=$(echo $REPO_PATH | cut -d'/' -f2)
+else
+    echo "错误: 请使用正确的格式 USERNAME/REPO_NAME"
+    echo "例如: ./deploy-to-github.sh Arc-dev365/tarotaro"
+    exit 1
+fi
+
 REMOTE_URL="https://github.com/${GITHUB_USERNAME}/${REPO_NAME}.git"
 
 echo "🚀 开始部署到 GitHub Pages..."
