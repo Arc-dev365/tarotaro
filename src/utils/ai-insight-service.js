@@ -43,8 +43,7 @@ const createThrottledCallback = (callback, delay = 100) => {
 };
 
 // 通义千问API配置
-// 直接硬编码API密钥，解决密钥无法正确读取的问题
-const QIANWEN_API_KEY = 'sk-a062a77e63754101845860d5a53abce3';
+const QIANWEN_API_KEY = import.meta.env.VITE_QIANWEN_API_KEY;
 // 使用兼容模式的新endpoint
 const QIANWEN_API_URL = 'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions';
 const MODEL_NAME = 'qwen-plus'; // 使用通义千问Plus模型
