@@ -22,17 +22,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Create deployment directory
-        run: |
-          mkdir -p deploy
-          cp test-deploy.html deploy/index.html
-          echo "Deployment directory created with test file"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
           
-      - name: Check deployment output
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Build uni-app for H5
         run: |
-          echo "Checking deployment output..."
-          ls -la ./deploy/
-          cat ./deploy/index.html | head -10
+          echo "Building uni-app for H5..."
+          npm run build:h5
+          echo "Build completed"
+        env:
+          NODE_ENV: production
+          
+      - name: Check build output
+        run: |
+          echo "Checking build output..."
+          find . -name "dist" -type d
+          ls -la ./dist/ || echo "No dist directory found"
+          ls -la ./dist/build/ || echo "No dist/build directory found"
+          ls -la ./dist/build/h5/ || echo "No dist/build/h5 directory found"
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -40,7 +53,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './deploy'
+          path: './dist/build/h5'
           
   deploy:
     environment:
