@@ -22,28 +22,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          
-      - name: Install dependencies
-        run: npm install
-        
-      - name: Build
+      - name: Create deployment directory
         run: |
-          echo "Node version: $(node --version)"
-          echo "NPM version: $(npm --version)"
-          echo "Starting build process..."
-          npm run build:h5
-          echo "Build completed successfully"
-        env:
-          NODE_ENV: production
+          mkdir -p deploy
+          cp test-deploy.html deploy/index.html
+          echo "Deployment directory created with test file"
           
-      - name: Check build output
+      - name: Check deployment output
         run: |
-          echo "Checking build output..."
-          ls -la ./dist/build/h5/
+          echo "Checking deployment output..."
+          ls -la ./deploy/
+          cat ./deploy/index.html | head -10
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -51,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/build/h5'
+          path: './deploy'
           
   deploy:
     environment:
