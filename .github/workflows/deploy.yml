@@ -34,10 +34,16 @@ jobs:
       - name: Build uni-app for H5
         run: |
           echo "Building uni-app for H5..."
+          echo "Node version: $(node --version)"
+          echo "NPM version: $(npm --version)"
+          echo "Current directory: $(pwd)"
+          echo "Directory contents:"
+          ls -la
           npm run build:h5
-          echo "Build completed"
+          echo "Build completed successfully"
         env:
           NODE_ENV: production
+          CI: true
           
       - name: Check build output
         run: |
