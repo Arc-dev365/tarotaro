@@ -35,9 +35,12 @@ jobs:
         run: |
           echo "Node version: $(node --version)"
           echo "NPM version: $(npm --version)"
-          npm run build:h5
+          echo "Starting build process..."
+          npm run build:h5 2>&1 || (echo "Build failed, checking error details..." && exit 1)
+          echo "Build completed successfully"
         env:
           VITE_QIANWEN_API_KEY: ${{ secrets.VITE_QIANWEN_API_KEY }}
+          NODE_ENV: production
           
       - name: Check build output
         run: |
