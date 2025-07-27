@@ -44,7 +44,7 @@
     "h5" : {
         "router" : {
             "mode" : "history",
-            "base" : "/"
+            "base" : "/tarotaro/"
         },
         "devServer" : {
             "port" : 5173,
