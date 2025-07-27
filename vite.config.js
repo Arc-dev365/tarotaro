@@ -10,7 +10,7 @@ export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/tarotaro/' : '/',
   // 环境变量配置
   define: {
-    'import.meta.env.VITE_QIANWEN_API_KEY': JSON.stringify(process.env.VITE_QIANWEN_API_KEY)
+    'import.meta.env.VITE_QIANWEN_API_KEY': JSON.stringify(process.env.VITE_QIANWEN_API_KEY || 'demo-key-for-build')
   },
   // 开发服务器配置
   server: {

@@ -34,7 +34,7 @@ jobs:
       - name: Build
         run: npm run build:h5
         env:
-          VITE_QIANWEN_API_KEY: ${{ secrets.VITE_QIANWEN_API_KEY || 'demo-key-for-build' }}
+          VITE_QIANWEN_API_KEY: ${{ secrets.VITE_QIANWEN_API_KEY }}
           
       - name: Check build output
         run: |
