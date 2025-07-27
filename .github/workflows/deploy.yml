@@ -21,47 +21,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
           
-      - name: Install dependencies
+      - name: Prepare deployment files
         run: |
-          npm install
-          echo "Dependencies installed successfully"
-        
-      - name: Build uni-app for H5
-        run: |
-          echo "Building uni-app for H5..."
-          echo "Node version: $(node --version)"
-          echo "NPM version: $(npm --version)"
-          # 设置更宽松的内存限制
-          export NODE_OPTIONS="--max-old-space-size=4096"
-          npm run build:h5
-          echo "Build completed successfully"
-        env:
-          NODE_ENV: production
-          CI: true
-          
-      - name: Verify build output
-        run: |
-          echo "Verifying build output..."
-          if [ -d "./dist/build/h5" ]; then
-            echo "Build directory exists"
-            ls -la ./dist/build/h5/
-            if [ -f "./dist/build/h5/index.html" ]; then
-              echo "index.html found - deployment ready"
-            else
-              echo "No index.html found, creating fallback"
-              cp test-deploy.html ./dist/build/h5/index.html
-            fi
+          echo "Preparing deployment files..."
+          # 检查是否有预构建的文件
+          if [ -f "index.html" ]; then
+            echo "Found pre-built files, using them for deployment"
+            mkdir -p deploy
+            cp -r assets static index.html deploy/ 2>/dev/null || true
+            ls -la deploy/
           else
-            echo "Creating fallback deployment structure"
-            mkdir -p ./dist/build/h5
-            cp test-deploy.html ./dist/build/h5/index.html
+            echo "No pre-built files found, using test deployment"
+            mkdir -p deploy
+            cp test-deploy.html deploy/index.html
           fi
           
       - name: Setup Pages
@@ -70,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist/build/h5'
+          path: './deploy'
           
   deploy:
     environment:

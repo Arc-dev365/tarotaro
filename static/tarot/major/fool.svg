@@ -1,0 +1,20 @@
+<svg width="180" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 卡片背景 -->
+  <rect width="180" height="300" rx="10" fill="#F5F5F5" stroke="#673AB7" stroke-width="2"/>
+  
+  <!-- 卡片标题 -->
+  <text x="90" y="30" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle" fill="#673AB7">愚者 (The Fool)</text>
+  
+  <!-- 卡片图像占位符 -->
+  <rect x="30" y="50" width="120" height="160" rx="5" fill="#EDE7F6"/>
+  <text x="90" y="130" font-family="Arial" font-size="14" text-anchor="middle" fill="#673AB7">0</text>
+  
+  <!-- 装饰元素 -->
+  <circle cx="90" cy="130" r="40" fill="none" stroke="#B39DDB" stroke-width="2"/>
+  <path d="M60,130 L120,130 M90,100 L90,160" stroke="#B39DDB" stroke-width="2"/>
+  
+  <!-- 卡片含义 -->
+  <text x="90" y="240" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">新的开始</text>
+  <text x="90" y="260" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">冒险精神</text>
+  <text x="90" y="280" font-family="Arial" font-size="12" text-anchor="middle" fill="#333333">无忧无虑</text>
+</svg>
